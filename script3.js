@@ -32,7 +32,6 @@ function handlePageLoad() {
             document.getElementById("numberForm").style.display = "block";
         }
     } else {
-        // Якщо cookies немає, показуємо форму для введення
         document.getElementById("numberForm").style.display = "block";
     }
 }
@@ -53,7 +52,6 @@ function processNumbers() {
     const min = Math.min(...numbers);
     const max = Math.max(...numbers);
 
-    // Формуємо результат
     const result = `Мінімальне: ${min}, Максимальне: ${max}`;
     alert(result);
 
@@ -62,5 +60,5 @@ function processNumbers() {
 
 document.addEventListener("DOMContentLoaded", () => {
     handlePageLoad();
-    document.getElementById("processButton").addEventListener("click", processNumbers); // Додаємо обробник на кнопку
+    document.getElementById("processButton").addEventListener("click", processNumbers);
 });

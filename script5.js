@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     function createForm(block) {
-        // Уникаємо створення кількох форм
         if (block.querySelector('.list-form')) return;
 
         const form = document.createElement('form');
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const items = Array.from(ul.children).map(item => item.textContent);
             localStorage.setItem(`list_${block.id}`, JSON.stringify(items));
             alert('Список збережено!');
-            renderSavedList(block); // Використовуємо функцію для оновлення списку
+            renderSavedList(block);
         });
 
         form.appendChild(saveButton);
@@ -50,14 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Обробляємо блоки, де потрібна функціональність списків
     for (let i = 1; i <= 6; i++) {
         const block = document.getElementById(i);
 
-        // Завантажуємо збережений список при завантаженні сторінки
         renderSavedList(block);
 
-        // Додаємо подію для створення форми при подвійному кліку
         block.addEventListener('dblclick', () => {
             createForm(block);
         });
